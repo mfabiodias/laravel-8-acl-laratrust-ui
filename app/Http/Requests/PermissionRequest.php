@@ -18,6 +18,7 @@ class PermissionRequest extends FormRequest
             'name'         => 'required|unique:permissions,name|max:255',
             'display_name' => 'nullable|max:255',
             'description'  => 'nullable|max:255',
+            'route'        => 'required|max:255',
         ];
         
         if(parent::method() == 'PUT'){
@@ -37,6 +38,8 @@ class PermissionRequest extends FormRequest
             'name.max'         => 'Nome aceita até :max caracteres.',
             'display_name.max' => 'Nome de exibição aceita até :max caracteres.',
             'description.max'  => 'Descrição aceita até :max caracteres.',
+            'route.required'   => 'Rota é obrigatório.',
+            'route.max'        => 'Rota aceita até :max caracteres.',
         ];
     }
 }

@@ -12,6 +12,8 @@ class LaratrustUpdateTables extends Migration
         Schema::table('permissions', function (Blueprint $table) {
             $table->enum('type', ['admin', 'registro', 'relatorio'])
                 ->default('admin')->after('id');
+            $table->string('subtype')->after('type');
+            $table->string('route')->after('description');
         });
     }
 
@@ -20,6 +22,8 @@ class LaratrustUpdateTables extends Migration
         // Drop columns on table permissions
         Schema::table('permissions', function (Blueprint $table) {
             $table->dropColumn('type');
+            $table->dropColumn('subtype');
+            $table->dropColumn('route');
         });
     }
 }
